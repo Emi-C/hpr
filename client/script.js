@@ -4,7 +4,7 @@ function toppad(){
     return parseInt(ptop+100);
 }
 
-$(document).ready(function(){toppad();});
+$('.menu').imagesLoaded(function(){toppad();});
 
 
 $(document).ready(function(){
