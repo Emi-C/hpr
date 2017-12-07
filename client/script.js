@@ -50,7 +50,7 @@ function getNewPosts(base){
       switch(data.type){
         case 'facebook':
           if(data.tipomedia=="photo"){
-            post+='<div class="media"><a href="'+data.post_link+'" target="_blank"><img src="https://graph.facebook.com/'+data.object_id+'/picture" class="img-responsive"></a></div>';
+            post+='<div class="media"><a href="'+data.picture+'" target="_blank"><img src="'+data.picture+'" class="img-responsive"></a></div>';
           }
           if(data.tipomedia=="video"){
             post+='<div class="media"><a href="'+data.picture+'" target="_blank"><img src="'+data.picture+'" class="img-responsive"></a></div>';
