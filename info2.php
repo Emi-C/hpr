@@ -21,14 +21,14 @@ $fbUsers = array('vascorossi','Ligabue');
 foreach ($fbUsers as &$user) {
  
 
-$fbPost= $fb->get('/'.$user.'/posts?limit=1&fields=message,link,created_time,type,name,id,source');
+$fbPost= $fb->get('/'.$user.'/posts?limit=100&fields=message,link,created_time,type,name,id,source,permalink_url,picture');
 
 
     $fbPost = $fbPost->getGraphEdge();
 
     		$response_array = $fbPost->asArray();
 
-
+var_dump($response_array);
 foreach ($response_array as &$post) {
         if (!is_null($post['message'])) {
 
@@ -39,12 +39,14 @@ foreach ($response_array as &$post) {
                 "chiave" => $user,
                 "text" => $post['message'],
                 "type" => "facebook",
+                "post_link" => $post['permalink_url'],
                 "ora" => strtotime($date['date']),
                 "object_id" => $post['object_id'],
                 'artist_id' => $post['from']['id'],
                 'tipomedia' => $post['type'],
                 "user" => $post['from']['name'],
-                "link" => $post["link"],
+                "source_link" => $post["link"],
+                "picture" => $post['picture'],
             );
             $message[] = $feed;
         }

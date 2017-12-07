@@ -50,24 +50,24 @@ function getNewPosts(base){
       switch(data.type){
         case 'facebook':
           if(data.tipomedia=="photo"){
-            post+='<div class="media"><a href="'+data.link+'" target="_blank"><img src="https://graph.facebook.com/'+data.object_id+'/picture" class="img-responsive"></a></div>';
+            post+='<div class="media"><a href="'+data.post_link+'" target="_blank"><img src="https://graph.facebook.com/'+data.object_id+'/picture" class="img-responsive"></a></div>';
           }
           if(data.tipomedia=="video"){
-            post+='<div class="media"><a href="'+data.link+'" target="_blank"><img src="https://graph.facebook.com/'+data.object_id+'/picture" class="img-responsive"></a></div>';
+            post+='<div class="media"><a href="'+data.picture+'" target="_blank"><img src="'+data.picture+'" class="img-responsive"></a></div>';
           }
           break;
         case 'twitter':
           if(data.media!=null){
-            post+='<div class="media"><a href="'+data.link+'" target="_blank"><img src="'+data.media+'" class="img-responsive"></a></div>';
+            post+='<div class="media"><a href="'+data.post_link+'" target="_blank"><img src="'+data.media+'" class="img-responsive"></a></div>';
           }
           break;
         case 'instagram':
           if(data.media!=null){
-            post+='<div class="media"><a href="'+data.link+'" target="_blank"><img src="'+data.media+'" class="img-responsive"></a></div>';
+            post+='<div class="media"><a href="'+data.post_link+'" target="_blank"><img src="'+data.media+'" class="img-responsive"></a></div>';
           }
           break;
       }
-      post+='<div class="txt">'+txt+'</div><a href="'+data.link+'" target="_blank" class="bot"><span>see original post</span><i class="fa fa-chevron-right"></i></a></div>';
+      post+='<div class="txt">'+txt+'</div><a href="'+data.post_link+'" target="_blank" class="bot"><span>see original post</span><i class="fa fa-chevron-right"></i></a></div>';
       newposts.push(post);
 			//$('.postcont').append(post);
     });
